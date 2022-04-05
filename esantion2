@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream fin("email.in");
+ofstream fout("email.out");
+  int n,m[10][10],k;
+
+int em(int indice){
+	int emnumber=0;
+	for(int j=0;j<n;j++){
+		emnumber+=m[indice][j];
+	}
+	return emnumber;
+}
+
+int main() {		
+	fin>>n;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			fin>>m[i][j];
+		}
+		if(em(i)<=3)k++;
+	}
+	fout<<k;
+	return 0;
+}
