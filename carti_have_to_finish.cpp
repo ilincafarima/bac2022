@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+//bac 2018 sesiunea de baza
 int carti[100][100];
 int n;
 int indice = 0;
