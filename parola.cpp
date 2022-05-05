@@ -1,25 +1,29 @@
-#include <iostream> //edited by fmto
+#include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
-ifstream fin("parola.txt");
-string pw;
+string parole[10];
 int nr;
 int valid = 0;
-bool prelucrare(string s) {
-	for (int i = 0; i < s.size(); i++) {
-		if (islower(s[i])) return true;
+bool litera(string x) {
+	int lungimea = x.size();
+	for (int i = 0; i < lungimea; i++) {
+		if (islower(x[i]) == 0) {
+			return true;
+		}
 	}
-	return false;
 }
 int main()
 {
-	
-	fin >> nr;
+	ifstream par("parola.txt");
+	par >> nr;
 	for (int i = 0; i < nr; i++) {
-		cin >> pw;
-		valid+=prelucrare(pw);
+		par >> parole[i];
+	}
+	for (int i = 1; i < nr; i++) {
+		valid += litera(parole[i]);
 	}
 	cout << valid;
+	par.close();
 	return 0;
 }
